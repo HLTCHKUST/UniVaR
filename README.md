@@ -1,6 +1,6 @@
 # High-Dimension Human Value Representation in Large Language Models
 
-<img width="836" alt="cultural_map" src="https://github.com/HLTCHKUST/UniVaR/assets/2826602/6e733133-a525-417b-b6c4-cded996a325d">
+<img width="836" alt="Highlight human value map of LLMs" src="./assets/cultural_map.png">
 
 This is the official reposity for ["High-Dimension Human Value Representation in Large Language Models" paper](https://arxiv.org/abs/2404.07900). 
 
@@ -8,22 +8,27 @@ In this paper we introduce UniVaR,a high-dimensional neural representation of sy
 
 ## What is UniVaR?
 
-<img width="894" alt="Screenshot 2024-06-15 at 1 05 31 PM" src="https://github.com/HLTCHKUST/UniVaR/assets/2826602/85c51f5d-6f65-40c9-b68d-7a1884e2c736">
+<img width="894" alt="Overview of UniVaR" src="./assets/method.png"/>
 
-### Value Eliciting QA
-<img width="879" alt="Screenshot 2024-06-15 at 1 05 42 PM" src="https://github.com/HLTCHKUST/UniVaR/assets/2826602/33d369c3-fc59-4c8d-bec8-d43ead9e1501">
+UniVaR is a high dimension representation of human value distribution in LLMs. UniVaR is trained through a surrogate task, called value embedding learning, to learn a compact representation that contains maximized mutual information with value-relevant aspects of LLMs while discarding other confounding factors as much as possible. With the incorporation of value-eliciting QAs, UniVaR applies multi-view self-supervised learning by maximizing mutual information across views to ensure capturing the shared value-relevant aspects across the two views while excluding other non-shared factors. 
 
+<img width="879" alt="Generation pipeline of the value eliciting QAs" src="./assets/qa_pipeline.png"/>
 
 ## UniVaR is not a Sentence Embedding
-<img width="885" alt="Screenshot 2024-06-15 at 1 06 13 PM" src="https://github.com/HLTCHKUST/UniVaR/assets/2826602/f7a2fa81-322e-4845-b784-ce229adbd161">
 
-<img width="884" alt="Screenshot 2024-06-15 at 1 05 57 PM" src="https://github.com/HLTCHKUST/UniVaR/assets/2826602/0b23b35f-1ad6-4424-b188-01ec282a2850">
+To ensure minimal sharing of linguistics aspect across views, we translate all the value-eliciting QAs to English and perform paraphrasing to avoid language-specific markers and increase the linguistics diversity. UniVaR displays a strong capability surpassing all baselines by ~15% k-NN accuracy and 10-15% linear probing accuracy@10 on the LLM value identification task. While, word and sentence embedding representations perform poorly indicating that there are significant differences between value representations from UniVaR and existing embedding representations.
+
+<img width="885" alt="Main result on LLM identification task of UniVaR" src="./assets/results.png"/>
+
+In addition, UniVaR only minimally capture non-value-relevant factors by evaluating UniVaR representations on non-value-eliciting QAs gathered from LIMA (Zhou et al., 2023). UniVaR is less affected by artifacts such as writing style, choice of common words, and translationese factors, highlighting its suitability for capturing value-relevant aspects.
+
+<img width="884" alt="Value and non-value performance of UniVaR" src="./assets/value_non-value.png"/>
 
 ## File Structure
 - value_eliciting_qa_generation => Folder containing pipeline generation scripts for value eliciting QAs.
 - univar_trainer => Folder containing training scripts for building UniVar models.
 - univar_evaluation => Folder containing the evaluation scripts for evaluating UniVar and other representation models.
-- univar_inference_demo =>
+- examples => Folder containing the examples on how to extract and visualize representations using UniVaR.
 
 ## Citation
 ```
