@@ -1,5 +1,4 @@
 import os, sys
-sys.path.append('../univar_trainer')
 
 import argparse
 import glob
@@ -21,7 +20,7 @@ import evaluate
 
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
-from training_utils.utils import encode_qas
+from utils import encode_qas
 
 target_label = 'value' # 'lang' or 'model'
 model_path = 'FacebookAI/xlm-roberta-base'
