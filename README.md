@@ -2,7 +2,7 @@
 
 <img width="836" alt="Highlight human value map of LLMs" src="assets/cultural_map.png">
 
-This is the official reposity for ["High-Dimension Human Value Representation in Large Language Models" paper](https://arxiv.org/abs/2404.07900). 
+This is the official reposity for paper ["High-Dimension Human Value Representation in Large Language Models"](https://arxiv.org/abs/2404.07900). 
 
 In this paper we introduce UniVaR,a high-dimensional neural representation of symbolic human value distributions in LLMs. This is a continuous and scalable representation, self-supervised from the value-relevant responses of 8 LLMs and evaluated on 15 open-source and commercial LLMs.
 
@@ -26,7 +26,7 @@ In addition, UniVaR only minimally capture non-value-relevant factors by evaluat
 
 ## File Structure
 - value_eliciting_qa_generation => Folder containing pipeline generation scripts for value eliciting QAs.
-- univar_trainer => Folder containing training scripts for building UniVar models.
+- univar_training => Folder containing training details of UniVar models.
 - univar_evaluation => Folder containing the evaluation scripts for evaluating UniVar and other representation models.
 - examples => Folder containing the examples on how to extract and visualize representations using UniVaR.
 
